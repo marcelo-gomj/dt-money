@@ -2,16 +2,19 @@ import { createGlobalStyle } from 'styled-components';
 
 
 export const GlobalStyle = createGlobalStyle`
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
     :root{
         --background: #f0f2f5;
         --red: #E52E40;
         --blue: #5429CC;
         --blue-light: #6933FF;
+        --green: #33cc95;
 
         --text-title: #363F5F;
         --text-body: #969C83;
 
-        --shape: #FFFFFF
+        --shape: #FFFFFF;
     }
 
     *{
@@ -32,10 +35,10 @@ export const GlobalStyle = createGlobalStyle`
 
     body{
         background: var(--background)
-        -webkit-font-smoothing: antialiased;
+        -web-kit-
     }
 
-    .body, input, textarea, button {
+    body, input, textarea, button {
         font-family: 'Poppins', sans-serif;
         font-weight: '400';
     }
@@ -53,4 +56,4 @@ export const GlobalStyle = createGlobalStyle`
         cursor: not-allowed;
     }
 
-`;
+`
