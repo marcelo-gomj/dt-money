@@ -1,7 +1,5 @@
 import logoImg from '../../assets/logo.svg';
 import { Container, Content } from '../Header/styles';
-import {useState } from 'react';
-
 interface HeaderProps {
     onOpenNewTransactionModal: () => void;
 }

@@ -1,22 +1,11 @@
 import { GlobalStyle } from "./components/styles/global";
 import { Header } from './components/Header/index';
 import { Dashboard } from "./components/Dashboard/index";
-import { createServer } from 'miragejs';
 import Modal from 'react-modal';
 import { useState } from 'react';
+import { NewTransactionsModal } from "./components/NewTransactionsModal";
 
-createServer({
-  routes(){
-    this.namespace = 'api';
-
-    this.get('transactions', () => {
-      return [{
-        id: 2,
-        name: 'Marcelo'
-      }]
-    })
-  }
-})
+Modal.setAppElement('#root');
 
 export function App() {
     const [modalTransactions, setModalTransactions] = useState(false);
@@ -35,13 +24,12 @@ export function App() {
 
             <Dashboard />
 
-            <Modal 
+            <NewTransactionsModal 
                 isOpen={modalTransactions} 
                 onRequestClose={handleCloseModalTransactions}
             />
 
             <GlobalStyle />
-
         </>
   );
 }
