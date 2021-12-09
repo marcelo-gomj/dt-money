@@ -5,7 +5,7 @@ import { createServer, Model } from 'miragejs';
 
 createServer({
     models: {
-        transactions: Model
+        transaction: Model
     },
 
     seeds(server){
@@ -14,17 +14,25 @@ createServer({
                 {
                     id: '1',
                     title: 'Compra no mercadinho',
-                    value: 150,
-                    type: 'deposit',
+                    amount: 150,
+                    type: 'withdraw',
                     category: 'Mercadinho',
                     createAt: new Date()
                 },
                 {
                     id: '2',
                     title: 'Site feito para +Papel',
-                    value: 1200,
-                    type: 'withdraw',
+                    amount: 1500,
+                    type: 'deposit',
                     category: 'Papelaria',
+                    createAt: new Date()
+                }, 
+                {
+                    id: '3',
+                    title: 'Mouse Longitech',
+                    amount: 50,
+                    type: 'withdraw',
+                    category: 'Eletronicos',
                     createAt: new Date()
                 }
             ]
@@ -35,12 +43,12 @@ createServer({
         this.namespace = 'api';
 
         this.get('/transactions', () => {
-            return this.schema.all('transactions');
+            return this.schema.all('transaction');
         })
 
         this.post('/transactions', (schema, request) => {
             const data = JSON.parse(request.requestBody)
-            return schema.create(data);
+            return schema.create('transaction', {...data});
         })
     }
 })
