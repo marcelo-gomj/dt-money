@@ -3,8 +3,8 @@ import { Form, TransactionsButtonType, ButtonsType } from './styles';
 import closeImg from '../../assets/close.svg';
 import incomeImg from '../../assets/income.svg';
 import outcomeImg from '../../assets/outcome.svg';
-import {useState, FormEvent, useContext} from 'react';
-import { TransactionsContext } from '../../TransactionsContext';
+import {useState, FormEvent} from 'react';
+import { useTransactions } from '../../hooks/useTransactions';
 
 interface ModalTransactions {
     isOpen: boolean;
@@ -12,7 +12,7 @@ interface ModalTransactions {
 }
 
 export function NewTransactionsModal ({isOpen, onRequestClose} : ModalTransactions) {
-    const { createTransaction } = useContext(TransactionsContext);
+    const { createTransaction } = useTransactions();
     
     const [title, setTitle] = useState('');
     const [amount, setAmount] = useState(0);
