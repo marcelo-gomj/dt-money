@@ -15,14 +15,16 @@ createServer({
                     id: '1',
                     title: 'Compra no mercadinho',
                     value: 150,
-                    type: 'withdraw',
+                    type: 'deposit',
+                    category: 'Mercadinho',
                     createAt: new Date()
                 },
                 {
                     id: '2',
                     title: 'Site feito para +Papel',
                     value: 1200,
-                    type: 'deposit',
+                    type: 'withdraw',
+                    category: 'Papelaria',
                     createAt: new Date()
                 }
             ]
